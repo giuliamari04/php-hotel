@@ -9,7 +9,7 @@ if (isset($_GET["parking"])) {
 
 if (isset($_GET["vote"])) {
     $vote = $_GET['vote'];
-    $hotels = array_filter($hotels, fn($item) => $item['vote'] == $vote || $vote === '');
+    $hotels = array_filter($hotels, fn($item) => $item['vote'] >= $vote || $vote === '');
 }
 
 
@@ -35,7 +35,7 @@ if (isset($_GET["vote"])) {
                     <option value="">Mostra tutti</option>
                     <?php for ($i = 1; $i <= 5; $i++): ?>
                         <option value="<?php echo $i; ?>">
-                            <?php echo $i; ?> stelle
+                            <?php echo $i; ?> stelle o più
                         </option>
                     <?php endfor; ?>
                 </select>
